@@ -1,3 +1,5 @@
+from time import sleep
+
 from data_collection import DataCollection
 from data_to_sheet import UploadData
 
@@ -13,6 +15,8 @@ try:
             data_collection.price_list[i],
             data_collection.address_links[i],
         )
+
+        sleep(15)
 
         # close tab
         upload_data.close_tab()
