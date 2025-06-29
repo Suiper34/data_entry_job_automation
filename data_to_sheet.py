@@ -10,7 +10,8 @@ FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdbm7IggqaNt3Xb3UbdfRot8O-6
 
 class UploadData:
     def __init__(self):
-        options = ChromeOptions().add_experimental_option('detach', True)
+        options = ChromeOptions()
+        options.add_experimental_option('detach', True)
         self.FORM_URL = FORM_URL
         self.upload_data_driver = webdriver.Chrome(
             options)
@@ -73,6 +74,6 @@ class UploadData:
             except (Exception, NoSuchElementException, TimeoutException) as e:
                 print('Element not found or not accessible:', e)
 
-    # quit method
-    def quit(self):
-        self.upload_data_driver.quit()
+    # close tab after completion
+    def close_tab(self):
+        self.upload_data_driver.close()

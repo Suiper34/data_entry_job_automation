@@ -13,5 +13,9 @@ try:
             data_collection.price_list[i],
             data_collection.address_links[i],
         )
+
+        # close tab
+        upload_data.close_tab()
+
 except Exception as e:
     print('exception:', e)
