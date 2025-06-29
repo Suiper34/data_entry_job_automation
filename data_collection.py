@@ -49,7 +49,7 @@ class DataCollection:
 
         # property addresses
         self.property_addresses: list[str] = [
-            address.getText().strip() for address in self.entry_soup.select(
+            (address.getText().strip()).replace('|', '') for address in self.entry_soup.select(
                 'a.StyledPropertyCardDataArea-anchor address'
             )
         ]
